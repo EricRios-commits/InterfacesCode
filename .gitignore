@@ -1,0 +1,87 @@
+# =============== Unity ===============
+
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Lightmapping cache
+[Ll]ightmapSnapshot/
+
+# Generated for Android build
+.gradle/
+gradle/
+**/gradle.properties
+**/local.properties
+*.apk
+*.aab
+
+# Crash reports
+sysinfo.txt
+
+# =============== Asset Store Tools ===============
+Asset Store Tools*
+
+# =============== Visual Studio / VS Code ===============
+.vscode/
+.vs/
+*.csproj
+*.sln
+*.user
+*.suo
+*.tmp
+*.svd
+*.pdb
+*.mdb
+
+# =============== Rider ===============
+.idea/
+*.sln.iml
+
+# =============== Unity Collaborate ===============
+.collabignore
+
+# =============== Oculus Integration auto-generated files ===============
+# These are large and re-generated often
+Assets/Oculus/VR/Plugins/*
+!Assets/Oculus/VR/Plugins/Android/ (keep plugins if needed)
+Assets/Oculus/Avatar2/Libs/*
+
+# =============== Local user settings ===============
+UserSettings/
+*.pidb
+*.unitypackage
+
+# =============== Backup files ===============
+*.bak
+*.old
+*.orig
+
+# =============== OS-specific ===============
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+
+# =============== Logs ===============
+*.log
+
+# =============== Build artifacts ===============
+/Builds/
+/build/
+*.apk
+*.aab
+
+# =============== Unity Cloud Diagnostics ===============
+UnityCrashHandler64.exe
+
+# ==========================================
+# CONFIGURACIÓN SENSIBLE - NO SUBIR A GIT
+# ==========================================
+
+# API Keys y configuración de Groq
+InterfacesReborn/Assets/Resources/groq_config.json
+InterfacesReborn/Assets/Resources/groq_config.json.meta
