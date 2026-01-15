@@ -3,7 +3,7 @@
 ## Descripción del Proyecto
 
 InterfacesReborn es un prototipo de juego VR desarrollado para Meta Quest 2 que sitúa al jugador en una arena medieval donde debe sobrevivir oleadas progresivas de enemigos utilizando comandos de voz para invocar armas y combatir con movimientos físicos realistas.
-
+![gif](./gifs/gameplay.gif)
 ## Características Principales
 
 ### Mecánicas de Juego
