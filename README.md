@@ -270,13 +270,6 @@ public void OnHoverEnter(HoverEnterEventArgs args)
 }
 ```
 
-## GIF Animado de Ejecución
-
-<!-- Insertar aquí el GIF de gameplay cuando esté disponible -->
-![Gameplay Demo](./docs/gameplay.gif)
-
-*Nota: Agregar GIF mostrando: inicio desde Main Menu → oleada de enemigos → uso de comandos de voz para cambiar armas → combate → conversación con NPC → muerte del jugador*
-
 ## Acta de Acuerdos del Grupo
 
 ### Metodología de Trabajo
