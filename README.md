@@ -292,9 +292,9 @@ public void OnHoverEnter(HoverEnterEventArgs args)
 - IA de enemigos con Behavior Trees.
 
 **Enmanuel Vegas Acosta:**
-- Integración con LLM.
+- Integración con LLM para NPC.
 - Transiciones de escenas.
-- Efectos visuales y audio.
+- Efectos visuales (partículas) y audio de enemigos y ambiente.
 
 **Diego Hernández Chico:**
 - Integración de modelado 3D y animaciones.
