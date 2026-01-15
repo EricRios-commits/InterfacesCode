@@ -231,29 +231,17 @@ if (_controllerDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out device
   - Amplificación de audio: 4.0x
   - Formato de audio: WAV (16kHz, mono)
 
-### 3. **Sensor de Luz Ambiental (Light Sensor)**
-- **Ubicación**: `LightController.cs`
-- **Función**: Ajusta la iluminación del mundo virtual según luz ambiental real.
-- **Método**: Análisis de passthrough de cámara con mipmaps.
-- **Actualización**: Cada 0.5s
-
-```csharp
-float brightness = GetBrightness(); // De passthrough
-smoothBrightness = Mathf.Lerp(smoothBrightness, brightness, 0.1f);
-worldLight.intensity = smoothBrightness;
-```
-
-### 4. **Sensor de Posición (XR Tracking)**
+### 3. **Sensor de Posición (XR Tracking)**
 - **Ubicación**: Implícito en `XROrigin`
 - **Función**: Tracking 6DOF (6 grados de libertad) para cámara y controladores.
 - **Uso**: Posicionamiento de armas en mano del jugador.
 
-### 5. **Sensor Háptico (Controller Vibration)**
+### 4. **Sensor Háptico (Controller Vibration)**
 - **Ubicación**: Sistema XR nativo.
 - **Función**: Feedback táctil en colisiones y eventos.
 - **Implementación**: Integrado con XR Interaction Toolkit.
 
-### 6. **Sensor Gaze/Eye Tracking (Gaze Interactor)**
+### 5. **Sensor Gaze/Eye Tracking (Gaze Interactor)**
 - **Ubicación**: `GazeController.cs`
 - **Función**: Detección de mirada para interacción con NPC Alberto.
 - **Configuración**: 
@@ -300,6 +288,7 @@ public void OnHoverEnter(HoverEnterEventArgs args)
 - Integración de modelado 3D y animaciones.
 - Configuración de hitboxes de los entornos de escenas.
 - UI/UX en VR.
+- Tipo de movimiento del jugador (joystick/teleport).
 
 > [!IMPORTANT]
 > En gran medida, todos los miembros han trabajado en la mayoría de tareas de forma colaborativa y no se debería atribuir el mérito de un miembro a únicamente los puntos mencionados, sino a parte de las demás tareas asignadas a otros miembros como colaborador.
@@ -308,7 +297,7 @@ public void OnHoverEnter(HoverEnterEventArgs args)
 - Diseño de arquitectura general del proyecto
 - Definición de interfaces y contratos entre sistemas
 - Pruebas de jugabilidad y balance
-- Creación de assets 3D y configuración de escenas
+- Obtención de assets 3D y configuración de escenas
 - Debugging de integración entre sistemas
 
 ### Herramientas y Flujo de Trabajo
