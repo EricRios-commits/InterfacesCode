@@ -49,11 +49,6 @@ namespace Behavior
             _loopCoroutine = null;
         }
 
-        public GameObject GetClosestTarget()
-        {
-            return base.GetClosestTarget();
-        }
-
         private System.Collections.IEnumerator RaycastLoop()
         {
             var wait = new WaitForSeconds(Mathf.Max(0.01f, updateInterval));

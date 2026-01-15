@@ -22,8 +22,6 @@ namespace Combat
         Debug.LogError($"[WeaponSoundEffect] No se encontró DamageDealer en {gameObject.name}!");
         return;
       }
-
-      Debug.Log($"[WeaponSoundEffect] Iniciado en {gameObject.name}");
     }
 
     /// <summary>

@@ -40,13 +40,11 @@ public class WeaponSwitching : MonoBehaviour
         if (microphoneController != null)
         {
             microphoneController.onWeaponCommand += OnWeaponCommand;
-            Debug.Log("[WeaponSwitching] Suscrito a eventos de comandos de armas.");
         }
         else
         {
             Debug.LogError("[WeaponSwitching] ¡MicrophoneController no asignado!");
         }
-        
         // Verificar que el contenedor de armas esté asignado
         if (weaponsContainer == null)
         {
@@ -74,16 +72,11 @@ public class WeaponSwitching : MonoBehaviour
                 Debug.LogError("[WeaponSwitching] ¡No se encontró el Right Hand Controller! Asigna manualmente rightHandTransform.");
             }
         }
-        
-        // Equipar espada por defecto al iniciar
-        Debug.Log("[WeaponSwitching] Equipando espada por defecto...");
-        EquipWeapon("mace");
-        
+        EquipWeapon("sword");
         // Habilitar el input action del botón de cambio si está asignado
         if (switchWeaponButton != null && switchWeaponButton.action != null)
         {
             switchWeaponButton.action.Enable();
-            Debug.Log("[WeaponSwitching] Botón de cambio de arma habilitado (botón B)");
         }
         else
         {
@@ -163,7 +156,6 @@ public class WeaponSwitching : MonoBehaviour
         // Capitalizar el nombre del arma para buscar el GameObject
         string capitalizedName = char.ToUpper(weaponName[0]) + weaponName.Substring(1);
         
-        Debug.Log($"[WeaponSwitching] Buscando arma: '{capitalizedName}' en contenedor '{weaponsContainer.name}'");
         
         // Buscar el arma en el contenedor
         Transform weaponTransform = weaponsContainer.Find(capitalizedName);
@@ -171,25 +163,17 @@ public class WeaponSwitching : MonoBehaviour
         if (weaponTransform == null)
         {
             Debug.LogWarning($"[WeaponSwitching] ⚠️ Arma '{capitalizedName}' NO encontrada en el contenedor.");
-            Debug.Log($"[WeaponSwitching] Armas disponibles: {ListChildren(weaponsContainer)}");
             return;
         }
-        
-        Debug.Log($"[WeaponSwitching] ✓ Arma '{capitalizedName}' encontrada");
-        
         // Si ya hay un arma equipada, desequiparla primero
         if (currentWeapon != null)
         {
             UnequipWeapon();
         }
-        
         // Equipar la nueva arma
         currentWeapon = weaponTransform.gameObject;
         equippedWeaponName = capitalizedName;
-        
-        Debug.Log($"[WeaponSwitching] Activando arma '{capitalizedName}'...");
         currentWeapon.SetActive(true);
-        Debug.Log($"[WeaponSwitching] ⚔️ Arma '{capitalizedName}' activada: {currentWeapon.activeSelf}");
     }
     
     private string ListChildren(Transform parent)

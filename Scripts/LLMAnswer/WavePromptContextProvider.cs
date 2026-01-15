@@ -27,7 +27,6 @@ namespace LLMAnswer
             {
                 waveManager = FindFirstObjectByType<WaveManager>();
             }
-            
             if (waveManager != null && waveManager.StateManager != null)
             {
                 waveManager.StateManager.OnWaveStarted += OnWaveStarted;

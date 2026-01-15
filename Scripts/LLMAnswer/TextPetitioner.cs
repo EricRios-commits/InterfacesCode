@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using LLMAnswer;
+using Gaze;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace PTexto
+namespace LLMAnswer
 {
     public class TextPetitioner : MonoBehaviour
     {
@@ -19,6 +18,7 @@ namespace PTexto
         [SerializeField] private List<MonoBehaviour> contextProviderComponents;
         private List<IPromptContextProvider> contextProviders;
         private static string apiUrl = "http://gpu1.esit.ull.es:4000/v1/chat/completions";
+        private GazeNotifier gazeNotifier;
 
         [System.Serializable]
         public class ChatMessage
@@ -43,9 +43,22 @@ namespace PTexto
 
         void Start() {
             InitializeContextProviders();
-            // RequestToModel();
         }
 
+        void OnEnable()
+        {
+            gazeNotifier = FindFirstObjectByType<GazeNotifier>();
+            gazeNotifier.gazeAlert.AddListener(RequestToModel);
+        }
+
+        void OnDisable()
+        {
+            if (gazeNotifier != null)
+            {
+                gazeNotifier.gazeAlert.RemoveListener(RequestToModel);
+            }
+        }
+        
         private void InitializeContextProviders()
         {
             contextProviders = new List<IPromptContextProvider>();
@@ -60,14 +73,15 @@ namespace PTexto
                 }
             }
         }
-        
-        public void SendMessageFromString(string message)
+
+        private void SendMessageFromString(string message)
         {
             StartCoroutine(SendMessageToChatbot(message));
         }
 
-        public void RequestToModel()
+        private void RequestToModel()
         {
+            Debug.Log("Requesting to model...");
             string basePrompt = null;
             if (promptSO != null && !string.IsNullOrWhiteSpace(promptSO.prompt))
             {
@@ -82,6 +96,7 @@ namespace PTexto
                 basePrompt = "You're a dungeon master in a roman collosseum. Taunt the gladiators";
             }
             string finalMessage = BuildPromptWithContext(basePrompt);
+            Debug.Log("Final prompt built, sending to model...");
             SendMessageFromString(finalMessage);
         }
         
@@ -111,13 +126,11 @@ namespace PTexto
         private IEnumerator SendMessageToChatbot(string message)
         {
             Debug.Log("Entering send message function");
-            // Escapar caracteres especiales en el mensaje
             string escapedMessage = message.Replace("\\", "\\\\")
                                            .Replace("\"", "\\\"")
                                            .Replace("\n", "\\n")
                                            .Replace("\r", "\\r")
                                            .Replace("\t", "\\t");
-
             string jsonPayload = "{"
                                  + "\"model\": \"ollama/llama3.1:8b\"," // Debe coincidir con el modelo cargado en Ollama
                                  + "\"messages\": [{\"role\": \"user\", \"content\": \"" + escapedMessage + "\"}]"

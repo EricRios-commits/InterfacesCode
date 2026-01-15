@@ -53,15 +53,12 @@ namespace Player
                 if (mainCamera != null)
                 {
                     cameraTransform = mainCamera.transform;
-                    Debug.Log("[PlayerDeathHandler] Cámara encontrada automáticamente");
                 }
                 else
                 {
                     Debug.LogError("[PlayerDeathHandler] No se encontró la cámara principal. Asigna cameraTransform manualmente.");
                 }
             }
-            
-            // Asegurarse de que el panel de muerte esté desactivado al inicio
             if (deathPanel != null)
             {
                 deathPanel.SetActive(false);
@@ -70,7 +67,6 @@ namespace Player
             {
                 Debug.LogWarning("[PlayerDeathHandler] No se ha asignado el Death Panel. Asígnalo en el Inspector.");
             }
-            
             if (healthComponent == null)
             {
                 Debug.LogError("[PlayerDeathHandler] No se encontró HealthComponent. Este componente es requerido.");

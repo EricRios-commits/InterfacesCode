@@ -11,11 +11,8 @@ namespace Behavior
         [SerializeField] private LayerMask layerMask;
         
         [SerializeField] private Collider detectionCollider;
-
-        public event Action OnTargetChanged = delegate { };
         
         private CountdownTimer _timer;
-        
         
         private void Awake()
         {
@@ -34,11 +31,6 @@ namespace Behavior
             _timer.Start();
         }
         
-        public GameObject GetClosestTarget()
-        {
-            return base.GetClosestTarget();
-        }
-
         private void UpdateTargetPosition(GameObject newTarget)
         {
             SetTarget(newTarget);

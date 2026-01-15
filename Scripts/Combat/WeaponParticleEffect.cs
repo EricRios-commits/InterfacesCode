@@ -41,7 +41,6 @@ namespace Combat
         if (hitboxCollider != null)
         {
           hitboxTransform = hitboxCollider.transform;
-          Debug.Log($"[WeaponParticleEffect] Hitbox encontrado automáticamente en {hitboxCollider.gameObject.name}");
         }
       }
       else
@@ -54,8 +53,6 @@ namespace Combat
         Debug.LogWarning($"[WeaponParticleEffect] No se encontró Collider en el hitbox de {gameObject.name}. Las partículas no se generarán.");
         return;
       }
-
-      Debug.Log($"[WeaponParticleEffect] Iniciado en {gameObject.name} con hitbox en {hitboxTransform.gameObject.name}");
     }
 
     /// <summary>

@@ -159,17 +159,9 @@ namespace Whisper.Samples
             {
                 UnityEngine.Debug.LogWarning("[MicrophoneController] ⚠️ recordButtonAction no asignado. Configura manualmente en Inspector.");
             }
-            
-            // Inicializar Whisper
-            if (useRemoteServer)
+            if (!useRemoteServer)
             {
-                UnityEngine.Debug.Log("[MicrophoneController] Modo: Servidor remoto");
-            }
-            else
-            {
-                UnityEngine.Debug.Log("[MicrophoneController] Cargando Whisper local...");
                 await whisper.InitModel();
-                UnityEngine.Debug.Log("[MicrophoneController] Whisper local listo");
             }
         }
 

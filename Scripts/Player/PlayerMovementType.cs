@@ -18,7 +18,6 @@ public class PlayerMovementType : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("Llamada a START");
         MovementTypeSetter();
         if (teleportationArea == null)
         {
@@ -41,7 +40,6 @@ public class PlayerMovementType : MonoBehaviour
     private void MovementTypeSetter()
     {
         movementType = PlayerPrefs.GetInt(movementTypeKey, 0);
-        Debug.Log("El tipo de movimiento guardado es " + movementType);
         if (movementType == 0)
         {
             teleportationArea.SetActive(true);
